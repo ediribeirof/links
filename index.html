@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Define a codificação de caracteres para suportar acentos e caracteres especiais -->
+    <meta charset="UTF-8">
+    <!-- Configura a responsividade para dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Impede sniffing de tipo MIME para maior segurança -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <!-- Define política de referência para links externos -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <!-- Título da página, otimizado para SEO -->
+    <title>Ediribeirof - Links Exclusivos</title>
+    <!-- Descrição da página para SEO e acessibilidade -->
+    <meta name="description" content="Ediribeirof - Links exclusivos de promoções, cupons e ofertas da influenciadora digital e maquiadora profissional.">
+    <!-- Inclui Tailwind CSS via CDN para estilização base -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inclui Font Awesome para ícones usados no site -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- Inclui fontes do Google (Playfair Display e Lora) para estilização elegante -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Inclui o arquivo CSS personalizado -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Inclui IMask.js para máscara de entrada no campo WhatsApp -->
+    <script src="https://unpkg.com/imask"></script>
+    <!-- Inclui o script do Microsoft Clarity para análise comportamental -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/YOUR_CLARITY_PROJECT_ID";
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "YOUR_CLARITY_PROJECT_ID");
+        // Impede o rastreamento até o consentimento do usuário, em conformidade com a LGPD
+        clarity('stop');
+    </script>
+</head>
+<body class="font-sans bg-white text-gray-800">
+    <!-- Banner de Cookies para obter consentimento do usuário (LGPD, Art. 7, I) -->
+    <div id="cookie-banner" class="fixed bottom-0 left-0 w-full bg-gray-800 text-white p-4 z-50 hidden">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+            <!-- Texto explicativo sobre o uso de cookies -->
+            <p class="text-sm mb-2 md:mb-0" lang="pt-BR">
+                Usamos cookies para melhorar sua experiência e analisar o uso do site com o Microsoft Clarity. Leia nossa 
+                <a href="privacy-policy.html" class="text-pink-400 hover:underline">Política de Privacidade</a>.
+            </p>
+            <!-- Botões para aceitar ou rejeitar cookies -->
+            <div class="flex space-x-2">
+                <button id="accept-cookies" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-md" lang="pt-BR">Aceitar</button>
+                <button id="reject-cookies" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md" lang="pt-BR">Recusar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up para coletar dados pessoais com consentimento explícito (LGPD, Art. 7, I) -->
+    <div id="popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full mx-4">
+            <!-- Título do pop-up -->
+            <h2 class="text-2xl font-bold mb-4 font-playfair text-center" lang="pt-BR">Receba Mais Informações!</h2>
+            <p class="text-gray-600 mb-4 text-center" lang="pt-BR">Minhas fias, vem ficar por dentro das novidades!</p>
+            <p class="text-gray-600 mb-4 text-center" lang="pt-BR">Faça parte da comunidade da Edi: cadastra-se para receber novidades, eventos e conteúdos feitos para você.</p>
+
+            <form id="popup-form" class="space-y-4">
+                <div>
+                    <label for="popup-name" class="block text-sm font-semibold text-gray-700" lang="pt-BR">Seu Nome</label>
+                    <input type="text" id="popup-name" name="name" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500" placeholder="Digite seu nome" required aria-required="true">
+                    <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+                </div>
+                <div>
+                    <label for="popup-email" class="block text-sm font-semibold text-gray-700" lang="pt-BR">Seu Email</label>
+                    <input type="email" id="popup-email" name="email" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500" placeholder="Digite seu email" required aria-required="true">
+                    <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+                </div>
+                <div>
+                    <label for="popup-whatsapp" class="block text-sm font-semibold text-gray-700" lang="pt-BR">Seu WhatsApp</label>
+                    <input type="tel" id="popup-whatsapp" name="whatsapp" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500" placeholder="Digite seu WhatsApp" required aria-required="true">
+                    <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+                </div>
+                <!-- Checkbox para consentimento explícito -->
+                <div>
+                    <label class="flex items-center text-sm text-gray-600">
+                        <input type="checkbox" id="popup-consent" name="consent" required aria-required="true" class="mr-2">
+                        <span lang="pt-BR">Concordo em fornecer meus dados para contato ou gerenciamento de informações pessoais, conforme a <a href="privacy-policy.html" rel="noopener noreferrer" class="text-pink-500 hover:underline">Política de Privacidade</a>.</span>
+                    </label>
+                    <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+                </div>
+                <!-- Botões do formulário -->
+                <div class="flex justify-end space-x-2">
+                    <button type="button" id="popup-close" class="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400" lang="pt-BR">Fechar</button>
+                    <button type="submit" class="px-4 py-2 bg-pink-500 text-white rounded-md hover:bg-pink-600" lang="pt-BR">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Navegação -->
+    <nav class="bg-white shadow-md fixed w-full z-50 py-4">
+        <div class="container mx-auto px-4 lg:px-6 flex flex-col lg:flex-row lg:items-center lg:justify-between">
+            <div class="flex items-center justify-between">
+                <button id="mobile-menu-button" aria-expanded="false" class="lg:hidden text-pink-500 focus:outline-none" aria-label="Abrir menu de navegação">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <div id="mobile-menu" class="mobile-menu hidden lg:flex lg:items-center lg:space-x-6 w-full lg:w-auto mt-4 lg:mt-0">
+                <div class="flex flex-col lg:flex-row lg:space-x-4">
+                    <a href="#home" class="py-2 lg:py-0 text-gray-700 hover:text-pink-500 font-semibold text-base" aria-label="Página inicial">Home</a>
+                    <a href="#links" class="py-2 lg:py-0 text-gray-700 hover:text-pink-500 font-semibold text-base" aria-label="Links exclusivos">Links</a>
+                    <a href="https://ediribeirof.github.io/portifolio/" class="py-2 lg:py-0 text-gray-700 hover:text-pink-500 font-semibold text-base" aria-label="Portfólio">Portfólio</a>
+                    <a href="#about" class="py-2 lg:py-0 text-gray-700 hover:text-pink-500 font-semibold text-base" aria-label="Quem sou eu">Quem sou eu</a>
+                    <a href="#social" class="py-2 lg:py-0 text-gray-700 hover:text-pink-500 font-semibold text-base" aria-label="Redes sociais">Redes sociais</a>
+                    <a href="#contact" class="py-2 lg:py-0 text-gray-700 hover:text-pink-500 font-semibold text-base" aria-label="Contato">Contato/Orçamento</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Seção Hero -->
+    <section id="home" class="hero h-screen flex items-end justify-center text-center bg-cover bg-center relative" style="background-image: url('image/FTdeFundo.png');">
+        <div class="hero-overlay absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <h1 class="text-5xl md:text-6xl font-playfair text-white mb-8 animate-fadeIn visible" lang="pt-BR">Sejam bem-vindas, minhas Fias!</h1>
+            <p class="text-xl md:text-2xl text-white mb-8 animate-fadeIn visible" lang="pt-BR">Todas as promoções, cupons e ofertas em um só lugar!</p>
+            <a href="#links" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 inline-block animate-fadeIn visible" onclick="window.selectCategory('all')" lang="pt-BR" aria-label="Ver links exclusivos">Ver Links <i class="fas fa-arrow-down ml-2"></i></a>
+        </div>
+    </section>
+
+    <!-- Seção de Links Exclusivos -->
+    <section id="links" class="py-16 bg-gradient-to-b from-pink-50 to-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 font-playfair" lang="pt-BR">Links Exclusivos</h2>
+            <!-- Abas de categorias no estilo iFood -->
+            <div class="grid grid-cols-3 gap-2 mb-12 sm:flex sm:flex-nowrap sm:overflow-x-auto sm:gap-4" role="tablist">
+                <button class="category-tab active px-4 py-3 rounded-lg bg-gray-100 font-medium text-gray-700 hover:bg-pink-500 hover:text-white text-sm sm:text-base flex items-center justify-center" data-category="all" role="tab" aria-selected="true">
+                    <i class="fas fa-th-large mr-2"></i>Todos
+                </button>
+                <button class="category-tab px-4 py-3 rounded-lg bg-gray-100 font-medium text-gray-700 hover:bg-pink-500 hover:text-white text-sm sm:text-base flex items-center justify-center" data-category="pix" role="tab" aria-selected="false">
+                    <i class="fas fa-money-bill-wave mr-2"></i>Pix do Milhão
+                </button>
+                <button class="category-tab px-4 py-3 rounded-lg bg-gray-100 font-medium text-gray-700 hover:bg-pink-500 hover:text-white text-sm sm:text-base flex items-center justify-center" data-category="queima" role="tab" aria-selected="false">
+                    <i class="fas fa-fire mr-2"></i>Queima Diária
+                </button>
+                <button class="category-tab px-4 py-3 rounded-lg bg-gray-100 font-medium text-gray-700 hover:bg-pink-500 hover:text-white text-sm sm:text-base flex items-center justify-center" data-category="shopee" role="tab" aria-selected="false">
+                    <i class="fas fa-shopping-bag mr-2"></i>Shopee
+                </button>
+                <button class="category-tab px-4 py-3 rounded-lg bg-gray-100 font-medium text-gray-700 hover:bg-pink-500 hover:text-white text-sm sm:text-base flex items-center justify-center" data-category="powerfit" role="tab" aria-selected="false">
+                    <i class="fas fa-dumbbell mr-2"></i>Power Fit
+                </button>
+                <button class="category-tab px-4 py-3 rounded-lg bg-gray-100 font-medium text-gray-700 hover:bg-pink-500 hover:text-white text-sm sm:text-base flex items-center justify-center" data-category="whatsapp" role="tab" aria-selected="false">
+                    <i class="fas fa-users mr-2"></i>Grupo Exclusivo
+                </button>
+                <button class="category-tab px-4 py-3 rounded-lg bg-gray-100 font-medium text-gray-700 hover:bg-pink-500 hover:text-white text-sm sm:text-base flex items-center justify-center" data-category="promocoes" role="tab" aria-selected="false">
+                    <i class="fas fa-star mr-2"></i>Promoções
+                </button>
+            </div>
+            <!-- Container para os links -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="links-container" role="tabpanel">
+                <div id="no-links-message" class="text-center text-gray-600 col-span-full hidden">Nenhum link disponível nesta categoria.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Quem sou eu -->
+    <section id="about" class="py-16 bg-gradient-to-b from-white to-purple-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 md:pr-12">
+                    <img src="image/quem_sou_eu.jpg" alt="Edivânia Ribeiro, influenciadora digital e maquiadora profissional" loading="lazy" class="rounded-lg shadow-xl w-full h-auto">
+                </div>
+                <div class="md:w-2/3">
+                    <h2 class="text-4xl font-bold mb-6 font-playfair" lang="pt-BR">Quem sou eu</h2>
+                    <h3 class="text-2xl font-semibold mb-4 font-playfair text-gray-800" lang="pt-BR">Edivânia Ribeiro</h3>
+                    <p class="text-gray-600 mb-6" lang="pt-BR">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacus erat, maximus et dapibus id, bibendum id libero. Sed laoreet pulvinar enim, at convallis sapien cursus a. Aenean leo metus, semper facilisis elementum sit amet, convallis quis arcu. Donec tristique, arcu at convallis auctor, enim elit placerat libero, a aliquam purus lectus eu est. Fusce sollicitudin tincidunt est, ut ultricies felis elementum vitae. Suspendisse quis mi a nunc imperdiet pulvinar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Redes sociais -->
+    <section id="social" class="py-16 bg-gradient-to-b from-purple-50 to-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6 font-playfair" lang="pt-BR">Redes sociais</h2>
+            <div class="flex justify-center space-x-6">
+                <a href="https://www.instagram.com/ediribeirof/" target="_blank" rel="noopener noreferrer" class="text-pink-500 hover:text-pink-600 text-3xl" aria-label="Instagram de Edivânia Ribeiro"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@ediribeirof" target="_blank" rel="noopener noreferrer" class="text-gray-800 hover:text-gray-900 text-3xl" aria-label="TikTok de Edivânia Ribeiro"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Contato -->
+    <section id="contact" class="py-16 bg-gradient-to-b from-purple-50 via-white to-pink-200 text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-6 font-playfair text-pink-400" lang="pt-BR">Vamos gravar juntos? Entre em contato através do WhatsApp!</h2>
+            <a href="https://api.whatsapp.com/send?phone=5585997304019&text=Olá! Tudo bem? Tenho interesse em fechar uma parceria de publicidade." target="_blank" rel="noopener noreferrer" class="inline-block bg-pink-500 text-white px-6 py-2 rounded-full font-semibold hover:bg-pink-600 transition shadow-md mt-2 text-lg" aria-label="Contato via WhatsApp">Falar agora com a acessoria da Edi</a>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="bg-gradient-to-r from-pink-50 to-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="border-t border-gray-300 mt-8 pt-8 text-center">
+                <p class="text-gray-600 font-bold" lang="pt-BR">© 2025 Ediribeirof. Todos os direitos reservados. | <a href="privacy-policy.html" rel="noopener noreferrer" class="text-pink-500 hover:underline">Política de Privacidade</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <button id="backToTop" aria-label="Voltar ao topo" class="fixed bottom-6 right-6 bg-pink-500 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:scale-110">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- Modal para expansão de imagens -->
+    <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden">
+        <div class="relative max-w-3xl w-full mx-4">
+            <img id="modal-image" src="" alt="Imagem do produto expandida" class="w-full h-auto rounded-lg">
+            <button id="modal-close" class="absolute top-2 right-2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-900" aria-label="Fechar imagem">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Inclui o arquivo JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
