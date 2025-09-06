@@ -1,0 +1,264 @@
+/* Define a fonte padrão para o site */
+body {
+    font-family: 'Lora', serif;
+}
+
+/* Estilo da seção Hero com efeito parallax */
+.hero {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+/* Overlay escuro para a seção Hero */
+.hero-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo dos cartões de links */
+.link-card {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Efeito hover nos cartões de links */
+.link-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo das abas de categoria */
+.category-tab {
+    transition: all 0.3s ease;
+    min-width: 120px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para abas ativas ou em hover */
+.category-tab:hover, .category-tab.active {
+    background-color: #ec4899;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Remove a barra de rolagem padrão */
+.sm\:overflow-x-auto::-webkit-scrollbar {
+    display: none;
+}
+
+.sm\:overflow-x-auto {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Animação de fade-in */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-in, transform 0.5s ease-in;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilo do menu mobile */
+.mobile-menu {
+    transition: all 0.3s ease;
+}
+
+/* Ajuste do menu mobile para dispositivos menores */
+@media (max-width: 1023px) {
+    #mobile-menu {
+        max-width: 300px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        padding: 1rem;
+    }
+    #mobile-menu .flex {
+        flex-direction: column;
+        align-items: center;
+    }
+    #mobile-menu a {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem 0;
+    }
+}
+
+/* Estilo do botão Voltar ao Topo */
+#backToTop {
+    transition: all 0.3s ease;
+}
+
+/* Estilo para imagens de produtos */
+.product-image {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.product-image:hover {
+    transform: scale(1.05);
+}
+
+/* Estilo do modal de imagens */
+#image-modal {
+    transition: opacity 0.3s ease;
+}
+
+#modal-image {
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+#modal-close {
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo para informações de cupons */
+.coupon-info {
+    background-color: #f9e6f0;
+    padding: 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #333;
+}
+
+.coupon-title {
+    color: #c026d3;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+/* Estilo para mensagens de erro */
+.error-message {
+    color: #ef4444;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+/* Estilo para o banner de cookies */
+#cookie-banner {
+    transition: all 0.3s ease;
+}
+
+/* Estilo para o checkbox de consentimento */
+#popup-consent {
+    accent-color: #ec4899;
+}
+
+/* Estilo para o título do pop-up */
+#popup h2 {
+    color: #ec4899;
+}
+
+/* Estilo para o texto do pop-up */
+#popup p {
+    line-height: 1.5;
+}
+
+/* Estilo para o ícone de coração */
+#popup .fa-heart {
+    vertical-align: middle;
+}
+
+/* Estilo para o texto destacado */
+#popup .text-pink-500.font-bold {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Garante que o pop-up esteja acima de outros elementos */
+#popup {
+    z-index: 1000 !important;
+}
+
+/* Estilo para o alerta personalizado */
+#custom-alert {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(135deg, #ec4899, #f9a8d4); /* Gradiente rosa */
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Lora', serif;
+    font-size: 0.9rem;
+    max-width: 300px;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+#custom-alert.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#custom-alert .fa-heart {
+    color: white;
+    font-size: 1rem;
+}
+
+/* Estilos responsivos */
+@media (max-width: 640px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .category-tab {
+        font-size: 0.75rem;
+        padding: 0.5rem;
+        min-width: 0;
+    }
+    .link-card {
+        padding: 1rem;
+    }
+    .hero {
+        background-attachment: scroll;
+    }
+    #cookie-banner {
+        padding: 1rem;
+    }
+    #cookie-banner p {
+        font-size: 0.875rem;
+    }
+    #cookie-banner button {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+    #custom-alert {
+        max-width: 90%;
+        right: 0.5rem;
+        top: 0.5rem;
+        font-size: 0.8rem;
+        padding: 0.75rem 1rem;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+    .hero p {
+        font-size: 1.25rem;
+    }
+    .category-tab {
+        font-size: 0.875rem;
+    }
+}
