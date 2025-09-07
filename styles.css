@@ -1,0 +1,271 @@
+/* Estilo das abas de categoria */
+.category-tab {
+    transition: all 0.3s ease;
+    min-width: 120px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    color: #333;
+    white-space: nowrap;
+    position: relative;
+    touch-action: manipulation; /* Corrige problemas de toque em dispositivos móveis */
+}
+
+/* Estilo para abas em hover - removendo rosa claro e usando um fundo neutro */
+.category-tab:hover {
+    background-color: #f3f4f6; /* Cinza claro neutro, sem tom rosa */
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para abas ativas (selecionadas) - apenas esta terá rosa */
+.category-tab.active {
+    background-color: #ec4899 !important;
+    color: white !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+    transition: none !important;
+}
+
+/* Container das categorias */
+#links .grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 10px;
+}
+
+/* Ajustes para dispositivos móveis, tablets e iPads */
+@media (max-width: 1024px) {
+    #links .grid {
+        flex-direction: row;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 0 5px;
+    }
+
+    .category-tab {
+        flex: 0 0 auto;
+        min-width: 100px;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+        margin: 0 4px;
+    }
+
+    .category-tab:hover {
+        background-color: #f3f4f6; /* Mantém o fundo neutro no hover em dispositivos móveis */
+        color: #333;
+    }
+
+    .category-tab.active {
+        background-color: #ec4899 !important;
+        color: white !important;
+    }
+
+    /* Garante que o toque desmarque outras abas */
+    .category-tab:active:not(.active) {
+        background-color: #ffffff !important; /* Retorna ao branco ao tocar, sem rosa */
+        color: #333 !important;
+    }
+}
+
+/* Esconde barra de rolagem */
+#links .grid::-webkit-scrollbar {
+    display: none;
+}
+
+#links .grid {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Estilo para informações de cupons */
+.coupon-info {
+    background-color: #f9e6f0;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+/* Destaque para "CUPOM DE DESCONTO" */
+.coupon-highlight {
+    color: #ec4899 !important;
+    font-weight: 700 !important;
+    display: block;
+}
+
+/* Destaque para o texto do cupom */
+.coupon-info .coupon-title,
+.coupon-info span:contains("%"),
+.coupon-info span:contains("R$") {
+    font-weight: 700 !important;
+    color: #c026d3;
+    background-color: rgba(236, 72, 153, 0.1);
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+/* Destaque para couponInfo com conteúdo */
+.coupon-info.highlight-coupon {
+    background-color: #ffe6f0;
+    border-left: 4px solid #ec4899;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Layout dos produtos */
+#links-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 20px 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.link-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.link-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.link-card h3 {
+    padding: 10px;
+    text-align: center;
+    font-size: 1rem;
+    flex-grow: 0;
+}
+
+.link-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 1024px) {
+    #links-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .link-card img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 767px) {
+    #links-container {
+        grid-template-columns: 1fr;
+    }
+
+    .link-card img {
+        height: 150px;
+    }
+}
+
+/* Estilos gerais */
+body {
+    font-family: 'Lora', serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Estilo para o modal de imagem */
+#image-modal {
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#modal-image {
+    max-height: 80vh;
+}
+
+/* Estilo para o botão flutuante do WhatsApp */
+#whatsapp-float {
+    display: none;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    #whatsapp-float.tablet-only {
+        display: flex;
+    }
+}
+
+/* Estilo para o alerta personalizado */
+#custom-alert {
+    bottom: 20px;
+    right: 20px;
+    transform: translateY(100%);
+}
+
+#custom-alert.show {
+    transform: translateY(0);
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Estilo para parallax */
+.parallax {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+#home.parallax {
+    background-image: url('image/FTdeFundo.png');
+}
+
+#home .hero-overlay {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+    position: absolute;
+    inset: 0;
+}
+
+#home .container {
+    position: relative;
+    z-index: 10;
+}
+
+@media (min-width: 1024px) {
+    .parallax {
+        background-attachment: fixed;
+    }
+}
+
+@media (max-width: 1023px) {
+    .parallax {
+        background-attachment: scroll;
+    }
+}
+
+/* Animações de fade-in */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in {
+    opacity: 0;
+}
