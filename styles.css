@@ -1,0 +1,352 @@
+/* Estilos para as abas de categoria na seção "Links Exclusivos" */
+.category-tab {
+    transition: all 0.3s ease; /* Transição suave para hover e ativação */
+    min-width: 120px; /* Largura mínima para consistência */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve para profundidade */
+    background-color: #ffffff; /* Fundo branco */
+    color: #333; /* Cor do texto */
+    white-space: nowrap; /* Evita quebras de linha */
+    position: relative;
+    touch-action: manipulation; /* Melhora interação em dispositivos móveis */
+}
+
+/* Hover nas abas de categoria - fundo neutro */
+.category-tab:hover {
+    background-color: #f3f4f6; /* Cinza claro para hover */
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada */
+}
+
+/* Estilo para abas ativas (selecionadas) - fundo rosa */
+.category-tab.active {
+    background-color: #ec4899; /* Rosa do tema */
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease; /* Transição suave */
+}
+
+/* Container das abas de categoria */
+#links .grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza as abas */
+    gap: 8px; /* Espaçamento entre abas */
+    padding: 0 10px;
+}
+
+/* Ajustes para dispositivos móveis e tablets (rolagem horizontal das abas) */
+@media (max-width: 1024px) {
+    #links .grid {
+        flex-direction: row;
+        overflow-x: auto; /* Rolagem horizontal */
+        -webkit-overflow-scrolling: touch; /* Rolagem suave em iOS */
+        padding: 0 5px;
+    }
+
+    .category-tab {
+        flex: 0 0 auto;
+        min-width: 100px; /* Menor largura para mobile */
+        padding: 8px 12px;
+        font-size: 0.9rem; /* Fonte menor */
+        margin: 0 4px;
+    }
+
+    .category-tab:hover {
+        background-color: #f3f4f6; /* Mantém fundo neutro no hover */
+        color: #333;
+    }
+
+    .category-tab.active {
+        background-color: #ec4899; /* Rosa para aba ativa */
+        color: white;
+    }
+
+    /* Garante que o toque desmarque outras abas */
+    #links .grid .category-tab:active:not(.active) {
+        background-color: #ffffff;
+        color: #333;
+    }
+}
+
+/* Esconde a barra de rolagem nas abas */
+#links .grid::-webkit-scrollbar {
+    display: none;
+}
+
+#links .grid {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Estilo para informações de cupons nos cards */
+.coupon-info {
+    background-color: #f9e6f0; /* Fundo rosa claro */
+    padding: 8px;
+    border-radius: 4px;
+}
+
+/* Destaque para "CUPOM DE DESCONTO" */
+.coupon-highlight {
+    color: #ec4899; /* Rosa do tema */
+    font-weight: 700;
+    display: block;
+}
+
+/* Destaque para valores de cupom (ex.: %, R$) */
+.coupon-info .coupon-value {
+    font-weight: 700;
+    color: #c026d3; /* Roxo escuro */
+    background-color: rgba(236, 72, 153, 0.1); /* Fundo rosa claro */
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+/* Estilo para cupons destacados */
+.coupon-info.highlight-coupon {
+    background-color: #ffe6f0; /* Rosa mais claro */
+    border-left: 4px solid #ec4899; /* Borda rosa à esquerda */
+    font-weight: 600;
+    color: #333;
+}
+
+/* Layout dos cards de produtos */
+#links-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas em desktop */
+    gap: 16px;
+    padding: 20px 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.link-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    transition: transform 0.3s ease; /* Animação ao passar o mouse */
+    min-height: 400px; /* Altura mínima para consistência */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.link-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    aspect-ratio: 4/3; /* Proporção fixa para imagens */
+}
+
+.link-card h3 {
+    padding: 10px;
+    text-align: center;
+    font-size: 1rem;
+    flex-grow: 0;
+}
+
+.link-card:hover {
+    transform: translateY(-5px); /* Elevação ao passar o mouse */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Ajustes para tablets */
+@media (max-width: 1024px) {
+    #links-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    }
+
+    .link-card img {
+        height: 180px;
+    }
+}
+
+/* Ajustes para mobile */
+@media (max-width: 767px) {
+    #links-container {
+        grid-template-columns: 1fr; /* 1 coluna */
+    }
+
+    .link-card img {
+        height: 150px;
+    }
+}
+
+/* Estilos gerais do site */
+body {
+    font-family: 'Lora', serif; /* Fonte padrão para textos */
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif; /* Fonte para títulos */
+}
+
+/* Estilo para o modal de imagem expandida */
+#image-modal {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 16px; /* Espaçamento em telas menores */
+}
+
+#modal-image {
+    max-height: 80vh; /* Limita altura da imagem no modal */
+}
+
+@media (max-width: 767px) {
+    #modal-image {
+        max-height: 60vh; /* Altura reduzida em mobile */
+    }
+}
+
+/* Estilo para o botão flutuante do WhatsApp */
+#whatsapp-float {
+    display: none;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    #whatsapp-float.tablet-only {
+        display: flex; /* Exibe apenas em tablets */
+    }
+}
+
+/* Estilo para o alerta personalizado */
+#custom-alert {
+    bottom: 20px;
+    right: 20px;
+    transform: translateY(100%);
+    color: #fff;
+    background: linear-gradient(to right, #ec4899, #f472b6); /* Gradiente rosa */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Melhora legibilidade */
+}
+
+#custom-alert.show {
+    transform: translateY(0);
+    transition: transform 0.5s ease-in-out; /* Animação suave */
+}
+
+/* Estilo para o efeito parallax */
+.parallax {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh; /* Altura total da tela */
+    position: relative;
+    overflow: hidden;
+}
+
+#home.parallax {
+    background-image: url('image/FOTODEFUNDO.jpg'); /* Imagem de fundo do parallax */
+    background-color: #f3f4f6; /* Cor de fallback */
+}
+
+#home .hero-overlay {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)); /* Sobreposição escura */
+    position: absolute;
+    inset: 0;
+}
+
+#home .container {
+    position: relative;
+    z-index: 10;
+    padding-bottom: 100px; /* Espaço para o botão "Ver Links" */
+}
+
+@media (max-width: 767px) {
+    #home .container {
+        padding-bottom: 50px; /* Menos espaço em mobile */
+    }
+}
+
+@media (min-width: 1024px) {
+    .parallax {
+        background-attachment: fixed; /* Efeito parallax em desktop */
+    }
+}
+
+@media (max-width: 1023px) {
+    .parallax {
+        background-attachment: scroll; /* Rolagem normal em mobile */
+        background-position: center top; /* Ajuste para evitar cortes */
+    }
+}
+
+/* Estilo para a seção "Quem sou eu" */
+#about {
+    background: linear-gradient(to bottom, #fef1f5, #ffffff, #faf5ff); /* Gradiente: rosa claro → branco → roxo claro */
+    padding-top: 10rem; /* Espaço para o menu fixo */
+    padding-bottom: 4rem;
+}
+
+/* Estilo para a seção "Redes sociais" */
+#social {
+    background: linear-gradient(to bottom, #faf5ff, #ffffff, #faf5ff); /* Gradiente: roxo claro → branco → roxo claro */
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+/* Estilo para a seção "Contato/Orçamento" */
+#contact {
+    background: linear-gradient(to bottom, #faf5ff, #ffffff, #fff1f8); /* Gradiente: roxo claro → branco → rosa claro */
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+/* Estilo para o footer */
+footer {
+    background: linear-gradient(to bottom, #fff1f8, #ffffff); /* Gradiente: rosa claro → branco */
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* Estilo para o menu mobile em telas menores que 767px */
+@media (max-width: 767px) {
+    #mobile-menu {
+        max-width: 300px; /* Largura fixa para evitar ocupar toda a tela */
+        margin: 0 auto; /* Centraliza o menu horizontalmente */
+        background-color: rgba(255, 255, 255, 0.95); /* Fundo branco semitransparente para destaque */
+        padding: 1.5rem; /* Espaçamento interno maior para elegância */
+        border-radius: 12px; /* Bordas arredondadas para estética */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra pronunciada para profundidade */
+    }
+
+    #mobile-menu a {
+        display: block;
+        text-align: center; /* Centraliza o texto dos links */
+        padding: 1rem 0; /* Espaçamento vertical maior para legibilidade */
+        font-size: 1.1rem; /* Fonte ligeiramente maior */
+        color: #374151; /* Cor padrão dos links (cinza escuro) */
+        transition: color 0.3s ease, background-color 0.3s ease; /* Transição suave para hover */
+        outline: none; /* Remove contorno de foco padrão */
+    }
+
+    /* Evita destaque indesejado no toque em dispositivos móveis */
+    #mobile-menu a:hover, #mobile-menu a:focus {
+        color: #ec4899; /* Rosa no hover, consistente com o tema */
+        background-color: rgba(236, 72, 153, 0.1); /* Fundo rosa claro no hover */
+    }
+
+    /* Remove destaque imediato ao abrir o menu */
+    #mobile-menu[aria-hidden="false"] a {
+        pointer-events: auto; /* Garante interação após abertura */
+    }
+}
+
+/* Animações de fade-in para elementos */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in {
+    opacity: 0;
+}
